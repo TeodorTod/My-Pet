@@ -5,7 +5,7 @@ export const login = (username) => {
 export const getUser = () => {
     let username = localStorage.getItem('username');
 
-    return username();
+    return username;
 };
 
 export const isAuthenticated = () => {
