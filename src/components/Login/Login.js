@@ -1,7 +1,25 @@
+import { useNavigate } from 'react-router-dom';
+
+import * as authService from '../../services/authService';
+
 const Login = () => {
+    const navigate = useNavigate();
+
+    const onLogin = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+
+        let email = formData.get('email');
+
+        authService.login(email);
+
+        navigate('/');
+    };
+
     return (
         <section id="login-page" className="login">
-        <form id="login-form" action="" method="">
+        <form id="login-form" action="" onSubmit={onLogin}>
             <fieldset>
                 <legend>Login Form</legend>
                 <p className="field">
