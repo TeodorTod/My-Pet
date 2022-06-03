@@ -1,11 +1,13 @@
+import MyPets from "../../MyPets";
+
 const PetCard = ({
     pet
 }) => {
     return (
     <li className="otherPet">
-        <h3>Name: Buddy</h3>
-        <p>Type: dog</p>
-        <p className="img"><img src="/images/dog2.png" /></p>
+        <h3>Name: {pet.name}</h3>
+        <p>Type: {pet.type}</p>
+        <p className="img"><img src={pet.imageUrl} /></p>
         <a className="button" href="#">Details</a>
     </li>
     );
