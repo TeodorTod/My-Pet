@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import * as petService from "../../services/petService";
 
 const Details = () => {
-    const [pet, setPet] = useState();
+    const [pet, setPet] = useState({});
     const { petId } = useParams();
 
     useEffect(async () => {
@@ -12,11 +12,6 @@ const Details = () => {
         setPet(petResult);
     }, []);
 
-
-    petService.getOne(petId)
-        then(result => {
-
-        })
 
     return (
         <section id="details-page" className="details">
