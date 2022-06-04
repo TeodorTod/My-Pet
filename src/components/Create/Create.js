@@ -1,6 +1,6 @@
 const Create = () => {
     return (
-<section id="create-page" className="create">
+        <section id="create-page" className="create">
             <form id="create-form" action="" method="">
                 <fieldset>
                     <legend>Add new Pet</legend>

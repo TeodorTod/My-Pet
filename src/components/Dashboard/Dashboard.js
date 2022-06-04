@@ -1,13 +1,23 @@
-import PetCard from "./PetCard";
+import { Routes, Route, Link, Outlet } from 'react-router-dom';
+
+import PetList from '../PetList';
 
 const Dashboard = () => {
     return (
-<section id="dashboard-page" className="dashboard">
+        <section id="dashboard-page" className="dashboard">
             <h1>Dashboard</h1>
-            <ul className="other-pets-list">
 
-            </ul>
-            <p className="no-pets">No pets in database!</p>
+            <nav>
+                <Link to="types">Types</Link>
+            </nav>
+
+            <section>
+                <Routes>
+                    <Route path="/" element={<PetList />} />
+                    <Route path="/types" element={<><p> Types ... </p></>} />
+                </Routes>
+            </section>
+
         </section>
     );
 }

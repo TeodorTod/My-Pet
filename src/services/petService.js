@@ -1,8 +1,11 @@
-const baseUrl = 'http://softuni-sutom-server.herokuapp.com/jsonstore';
+const baseUrl = 'http://softuni-server-node.herokuapp.com/jsonstore'
 
 export const getAll = async () => {
-    let response =  await fetch(`${baseUrl}/pets`);
-    let pets = response.json();
+    let response = await fetch(`${baseUrl}/pets`)
 
-    return pets;
-}
+    let pets = await response.json();
+
+    let result = Object.values(pets)
+
+    return result; 
+};

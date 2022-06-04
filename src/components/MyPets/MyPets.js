@@ -1,5 +1,6 @@
 const MyPets = () => {
     return (
+
         <section id="my-pets-page" className="my-pets">
             <h1>My Pets</h1>
             <ul className="my-pets-list">

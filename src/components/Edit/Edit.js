@@ -1,6 +1,6 @@
-const Edit = () => {
+const Details = () => {
     return (
-<section id="edit-page" className="edit">
+        <section id="edit-page" className="edit">
             <form id="edit-form" action="#" method="">
                 <fieldset>
                     <legend>Edit my Pet</legend>
@@ -42,4 +42,4 @@ const Edit = () => {
     );
 }
 
-export default Edit;
+export default Details;
