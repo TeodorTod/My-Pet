@@ -18,7 +18,7 @@ const Login = ({
         
         onLogin(email);
 
-        navigate('/');
+        navigate('/dashboard');
     }
 
     return (
