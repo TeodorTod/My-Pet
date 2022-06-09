@@ -11,7 +11,7 @@ const MyPets = () => {
                     <a className="button" href="#">Details</a>
                 </li>
                 <li className="otherPet">
-                    <h3>Name: Tom</h3>
+                    <h3>Name: Tommy</h3>
                     <p>Type: cat</p>
                     <p className="img"><img src="/images/cat1.png" /></p>
                     <a className="button" href="#">Details</a>
