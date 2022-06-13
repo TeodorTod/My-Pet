@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import * as authService from './services/authService';
+import { AuthContext } from './contexts/AuthContext';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
@@ -12,41 +12,30 @@ import Create from './components/Create';
 import Details from './components/Details';
 
 function App() {
-  const [userInfo, setUserInfo] = useState({isAuthenticated: false, username: ''});
+  const [user, setUser] = useState({
+    accessToken: "",
+    email: "",
+    _id: ""
+  });
   
-  useEffect(() => {
-    let user = authService.getUser();
-
-    setUserInfo({
-      isAuthenticated: Boolean(user),
-      user,
-    })
-
-  }, []);
-
-  const onLogin = (username) => {
-    setUserInfo({
-      isAuthenticated: true,
-      user: username,
-    })
+  const login = (authData) => {
+    setUser(authData);
   }
 
   const onLogout = () => {
-    setUserInfo({
-      isAuthenticated: false,
-      user: null,
-    })
+
   }
 
   return (
+    <AuthContext.Provider value={{user, login}}>
     <div id="container">
-        <Header {...userInfo} />
+        <Header />
 
         <main id="site-content">
           <Routes>
             <Route path="/dashboard/*" element={<Dashboard />} />
-            <Route path="/login" element={<Login onLogin={onLogin} />} />
-            <Route path="/logout" element={<Logout onLogout={onLogout} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Register />} />
             <Route path="/my-pets" element={<MyPets />} />
             <Route path="/create" element={<Create />} />
@@ -58,6 +47,7 @@ function App() {
             <p>@PetMyPet</p>
         </footer>
     </div>
+    </AuthContext.Provider>
   );
 }
 

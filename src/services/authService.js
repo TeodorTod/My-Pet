@@ -1,16 +1,26 @@
-export const login = (email, password) => {
-    return fetch('http://localhost:3030/users/login', {
+const baseUrl = 'http://localhost:3030';
+
+export const login = async (email, password) => {
+    let res = await fetch(`${baseUrl}/users/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify({email, password})
-    })
-        .then(res => res.json())
+    });
+
+    let jsonResult = await res.json()
+
+    if (res.ok) {
+        return jsonResult;
+    } else {
+        //TODO show notification
+        throw jsonResult.message;
+    }
 };
 
 export const logout = () => {
-    localStorage.removeItem('username');
+    fetch (`${baseUrl}//users/logout`)
 }
 
 export const getUser = () => {
