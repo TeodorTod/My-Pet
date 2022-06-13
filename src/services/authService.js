@@ -20,7 +20,7 @@ export const login = async (email, password) => {
 };
 
 export const logout = () => {
-    fetch (`${baseUrl}//users/logout`)
+    fetch (`${baseUrl}/users/logout`)
 }
 
 export const getUser = () => {
