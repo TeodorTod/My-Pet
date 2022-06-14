@@ -1,7 +1,15 @@
 const Register = () => {
+    const registerSubmitHandler = (e) => {
+        e.preventDefault();
+
+        let formData = Object.fromEntries(new FormData(e.currentTarget));
+
+        console.log(formData);
+    };
+
     return (
         <section id="register-page" className="register">
-            <form id="register-form" action="" method="">
+            <form id="register-form" method="POST" onSubmit={registerSubmitHandler}>
                 <fieldset>
                     <legend>Register Form</legend>
                     <p className="field">

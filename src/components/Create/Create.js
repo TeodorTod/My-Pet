@@ -23,7 +23,7 @@ const Create = () => {
             description,
             imageUrl,
             type
-        }. user.accessToken)
+        }, user.accessToken)
         .then(result => {
             navigate('/dashboard');
         });
