@@ -32,3 +32,12 @@ export const getOne = async(petId) => {
 
     return data;
 }
+
+export const destroy = (petId, token) => {
+    return fetch(`${baseUrl}/pets/${petId}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': token
+        },
+    }).then(res => res.json());
+};
