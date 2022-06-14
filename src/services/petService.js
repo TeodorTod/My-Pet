@@ -18,7 +18,7 @@ export const create = async (petData, token) => {
             'content-type': 'application/json',
             'X-Authorization': token
         },
-        body: JSON.stringify({...petData, likes: 0})
+        body: JSON.stringify({...petData, likes: []})
     });
 
     let data = await res.json();

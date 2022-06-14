@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthContext } from './contexts/AuthContext';
+import  useLocalStorage from './hooks/useLocalStorage';
+
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
@@ -12,7 +14,7 @@ import Create from './components/Create';
 import Details from './components/Details';
 
 function App() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useLocalStorage('user', {
     accessToken: "",
     email: "",
     _id: ""
