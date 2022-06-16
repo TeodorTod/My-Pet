@@ -11,6 +11,8 @@ import MyPets from './components/MyPets';
 import Create from './components/Create';
 import Details from './components/Details';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {  
 
