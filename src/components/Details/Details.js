@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import * as petService from "../../services/petService";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useState, useEffect, useContext } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import * as petService from '../../services/petService';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Details = () => {
     const navigate = useNavigate();
@@ -14,7 +14,6 @@ const Details = () => {
             .then(petResult => {
                 setPet(petResult);
             })
-
     }, [petId]);
 
     const deleteHandler = (e) => {
@@ -23,23 +22,17 @@ const Details = () => {
         petService.destroy(petId, user.accessToken)
             .then(() => {
                 navigate('/dashboard');
-        });
+            });
     };
 
-    const editHandler = () => {
-
-    };
-
-    const ownerButtons =    
+    const ownerButtons = (
         <>
-            <Link className="button" href="#" onClick={editHandler}>Edit</Link>
+            <Link className="button" to="edit">Edit</Link>
             <a className="button" href="#" onClick={deleteHandler}>Delete</a>
         </>
-
-   
+    );
 
     const userButtons = <a className="button" href="#">Like</a>;
-
 
     return (
         <section id="details-page" className="details">
@@ -48,16 +41,15 @@ const Details = () => {
                 <p className="type">Type: {pet.type}</p>
                 <p className="img"><img src={pet.imageUrl} /></p>
                 <div className="actions">
-                    
                     {user._id && (user._id == pet._ownerId
-                        ?   ownerButtons
-                        :   userButtons
+                        ? ownerButtons
+                        : userButtons
                     )}
-                    
+
                     <div className="likes">
-						<img className="hearts" src="/images/heart.png" />
-						<span id="total-likes">Likes: {pet.likes?.length}</span>
-					</div>
+                        <img className="hearts" src="/images/heart.png" />
+                        <span id="total-likes">Likes: {pet.likes?.length}</span>
+                    </div>
                 </div>
             </div>
             <div className="pet-description">

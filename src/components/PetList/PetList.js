@@ -10,6 +10,9 @@ const PetList = () => {
             .then(result => {
                 setPets(result);
             })
+            .catch(err => {
+                console.log(err);
+            })
     }, []);
 
     return (
